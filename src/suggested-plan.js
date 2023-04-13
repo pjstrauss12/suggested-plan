@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import './week-element.js'
 
 const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
@@ -57,7 +58,7 @@ class SuggestedPlan extends LitElement {
 
   render() {
     return html`
-      <div>The project is coming soon</div>
+     <week-element></week-element>
     `;
   }
 }
