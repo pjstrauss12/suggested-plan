@@ -28,16 +28,15 @@ class WeekElement extends LitElement {
       background-color: var(--suggested-plan-background-color);
     }
     .wrapper{
-        border: 5px solid;
-        color: white;
-        margin: 12px;
-        background-color: black;
-        padding: 16px;
-        max-width: 400px;
+      display: flex;
+      flex-direction: row;
+      gap: 10rem;
+      padding: 20px;
+      border: 2px black solid;
     }
     
     .week{
-        display: block;
+      text-align: center;
     }
 
     .details{
@@ -46,6 +45,9 @@ class WeekElement extends LitElement {
       background-color: orange;
       display: inline-block;
       margin: 8px;
+    }
+    .time{
+      font-family: "OpenSans-Light", Arial, sans-serif;
     }
   `;
 
