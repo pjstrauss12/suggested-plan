@@ -31,7 +31,7 @@
       document.querySelector('suggested-plan').shadowRoot('week-element').shadowRoot('details').innerText = e.detail.value ? 'See Less' : "See All";
     });
     document.querySelector('suggested-plan').shadowRoot('week-element').shadowRoot('.details').addEventListener('click', (e) => {
-      const card = document.querySelector('suggested-plan');
+      const card = document.querySelector('suggested-plan').shadowRoot('week-element').shadowRoot('.details');
       card.opened = !card.opened;
     });
   </script>
