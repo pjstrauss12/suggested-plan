@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import './week-element.js'
-
-const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+import "@lrnwebcomponents/simple-icon/simple-icon.js";
+import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 
 class SuggestedPlan extends LitElement {
   static properties = {
@@ -21,33 +21,6 @@ class SuggestedPlan extends LitElement {
       margin: 0 auto;
       text-align: center;
       background-color: var(--suggested-plan-background-color);
-    }
-
-    main {
-      flex-grow: 1;
-    }
-
-    .logo {
-      margin-top: 36px;
-      animation: app-logo-spin infinite 20s linear;
-    }
-
-    @keyframes app-logo-spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
-    }
-
-    .app-footer a {
-      margin-left: 5px;
     }
   `;
 
