@@ -26,15 +26,6 @@
     import './src/week-element.js';
     import './src/suggested-plan.js';
   </script>
-  <script>
-    document.body.addEventListener('opened-changed', (e) =>{
-      document.querySelector('suggested-plan').shadowRoot('week-element').shadowRoot('details').innerText = e.detail.value ? 'See Less' : "See All";
-    });
-    document.querySelector('suggested-plan').shadowRoot('week-element').shadowRoot('.details').addEventListener('click', (e) => {
-      const card = document.querySelector('suggested-plan').shadowRoot('week-element').shadowRoot('.details');
-      card.opened = !card.opened;
-    });
-  </script>
 </body>
 
 </html>

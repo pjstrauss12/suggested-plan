@@ -6,6 +6,7 @@ import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 class SuggestedPlan extends LitElement {
   static properties = {
     header: { type: String },
+    weeks: {type: Array}
   }
 
   static styles = css`
@@ -22,16 +23,49 @@ class SuggestedPlan extends LitElement {
       text-align: center;
       background-color: var(--suggested-plan-background-color);
     }
+    .item {
+      display: inline-flex;
+    }
   `;
 
   constructor() {
     super();
     this.header = 'My app';
+    this.weeks = [];
+    this.updateWeeks();
   }
+
+  updateWeeks(){
+    const address = '../api/weeks';
+    fetch(address).then((response) => {
+        if (response.ok) {
+            return response.json()
+        }
+        return [];
+    })
+    .then((data) => {
+        this.weeks = data;
+    });
+}
 
   render() {
     return html`
      <week-element></week-element>
+     <div class="wrapper">
+            ${this.weeks.map(week => html`
+            <div class="item">
+                <week-element 
+                week="${week.week}" 
+                timeIcon="${week.timeIcon}" 
+                title="${week.title}" 
+                timeToComplete="${week.timeToComplete}"
+                description="${week.description}"
+                readIcon="${week.readIcon}"
+                activities="${week.activities}">
+              </week-element>
+            </div>
+            `)}
+        </div>
     `;
   }
 }

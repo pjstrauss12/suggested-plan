@@ -1,0 +1,11 @@
+[
+    {
+    "week": "1",
+    "timeIcon": "device:access-alarm",
+    "title": "Introduction",
+    "timeToComplete": 2,
+    "description": "This is the intro to the course",
+    "readIcon": "communication:import-contacts",
+    "activities": ["read", "write"]
+    }
+]
