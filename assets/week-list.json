@@ -7,5 +7,23 @@
     "description": "This is the intro to the course",
     "readIcon": "communication:import-contacts",
     "activities": ["read", "write"]
+    },
+    {
+    "week": "2",
+    "timeIcon": "device:access-alarm",
+    "title": "Introduction",
+    "timeToComplete": 2,
+    "description": "This is the intro to the course",
+    "readIcon": "communication:import-contacts",
+    "activities": ["read", "write"]
+    },
+    {
+    "week": "3",
+    "timeIcon": "device:access-alarm",
+    "title": "Introduction",
+    "timeToComplete": 2,
+    "description": "This is the intro to the course",
+    "readIcon": "communication:import-contacts",
+    "activities": ["read", "write"]
     }
 ]
