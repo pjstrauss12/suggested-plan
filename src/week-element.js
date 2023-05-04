@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 
 import "@lrnwebcomponents/simple-icon/simple-icon.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+import "./learning-list";
 
 class WeekElement extends LitElement {
   static properties = {
@@ -10,13 +11,16 @@ class WeekElement extends LitElement {
     title: {type: String},
     timeToComplete: {type: Number},
     description: {type: String},
-    readIcon: {type: String},
-    activities: {type: Array}
+    content: {type: Object},
+    videos: {type: Array},
+    reading: {type: Array},
+    quizzes: {type: Array}
   }
 
   static styles = css`
     :host {
       font-family: "OpenSans-Light", Arial, sans-serif;
+      font-size: 12px;
     }
     .wrapper{
       display: flex;
@@ -37,22 +41,21 @@ class WeekElement extends LitElement {
     }
 
     .details{
-      padding: 8px 8px;
-      color: blue;
-      display: inline-block;
-      margin: 8px;
+      font-size: 12px;
     }
+
   `;
 
   constructor() {
     super();
     this.week = '1';
-    this.timeIcon = 'device:access-alarm'
+    this.timeIcon = 'device:access-time'
     this.title = 'Introduction';
     this.timeToComplete = 2;
     this.description = 'This is the intro to the course';
-    this.readIcon = 'communication:import-contacts'
-    this.activities = ["read", "write"];
+    this.videos = [];
+    this.reading = [];
+    this.quizzes = [];
   }
 
   
@@ -66,12 +69,10 @@ class WeekElement extends LitElement {
           <div class="time">This should take ${this.timeToComplete} hours</div>
           <div class="title">${this.title}</div>
           <div class="desc">${this.description}</div>
-          <simple-icon accent-color="lime" icon="${this.readIcon}">
-          </simple-icon>
-          <details class="details" .open="${this.opened}" @toggle="${this.toggleEvent}">
+          <details class="details">
             <summary>See all</summary>
             <ul>
-              <div class="activity">${this.activities}</div>
+              <learning-list .videos=${this.content.videos} .readings=${this.content.reading} .quizzes=${this.content.quizzes}></learning-list>
             </ul>
           </details>
         </div>

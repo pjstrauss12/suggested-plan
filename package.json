@@ -15,6 +15,7 @@
     "start": "web-dev-server"
   },
   "dependencies": {
+    "@lrnwebcomponents/intersection-element": "^4.0.4",
     "@lrnwebcomponents/simple-icon": "^4.2.0",
     "lit": "^2.0.2"
   },
@@ -34,9 +35,9 @@
     "deepmerge": "^4.2.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.60.0",
+    "rollup-plugin-copy": "3.4.0",
     "rollup-plugin-esbuild": "^5.0.0",
-    "rollup-plugin-workbox": "^6.2.0",
-    "rollup-plugin-copy": "3.4.0"
+    "rollup-plugin-workbox": "^6.2.0"
   },
   "customElements": "custom-elements.json"
 }

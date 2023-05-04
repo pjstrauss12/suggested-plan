@@ -1,12 +1,20 @@
 import { LitElement, html, css } from 'lit';
 import './week-element.js'
+import './learning-list.js'
 import "@lrnwebcomponents/simple-icon/simple-icon.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+import { IntersectionObserverMixin } from "@lrnwebcomponents/intersection-element/lib/IntersectionObserverMixin.js";
 
-class SuggestedPlan extends LitElement {
-  static properties = {
-    header: { type: String },
-    weeks: {type: Array}
+class SuggestedPlan extends IntersectionObserverMixin(LitElement) {
+  static get properties() {
+    let props = {};
+    if (super.properties) {
+      props = super.properties;
+    }
+    return {
+      ...props,
+    weeks: { type: Array }
+    } 
   }
 
   static styles = css`
@@ -50,8 +58,9 @@ class SuggestedPlan extends LitElement {
 
   render() {
     return html`
-     <week-element></week-element>
-     <div class="wrapper">
+      ${this.elementVisible
+        ? html`
+          <div class="wrapper">
             ${this.weeks.map(week => html`
             <div class="item">
                 <week-element 
@@ -61,11 +70,16 @@ class SuggestedPlan extends LitElement {
                 timeToComplete="${week.timeToComplete}"
                 description="${week.description}"
                 readIcon="${week.readIcon}"
-                activities="${week.activities}">
+                .content=${week}
+                .videos=${week.videos}
+                .reading=${week.readings}
+                .quizzes=${week.quizzes}>
               </week-element>
             </div>
-            `)}
-        </div>
+              `)}
+          </div>
+          `
+        : ``}
     `;
   }
 }
